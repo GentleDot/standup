@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# StandUP!
 
-## Available Scripts
+```
+애자일 프랙티스 standup 할 때 아이스브레이킹에 사용되는 IT 기술에 관련된 주제를 나눌 수 있는 아티클들을 공유하는 소셜미디어 프로젝트
+```
 
-In the project directory, you can run:
+## 사용자 스토리
+1. 김개발은 아침 스탠드업 시간에 같이 이야기를 나눌 수 있는 주제를 우I해 스탠드업이라는 웹 앱을 찾아 간다. 이렇게 함으로써 사람들과 IT에 대한 주제로 커뮤니케이션을 할 수 있다.
+2. 김개발이 어제 사이트를 방문해서 유심히 읽은 글을 스탠드업 앱에 올릴 수 있다. 이렇게 하면 다른 사람 들이 볼 수 있다.
+    - 스탠드업 앱의 에디터 창은 하나만 있고 거기서 글을 작성하고 올리면 글이 외부 클라우드 공간에 저 장이된다.
+3. 김개발이 작성한 글이 목록으로 보여진다. 이렇게 함으로써 다른 사람들이 목록을 확인할 수 있다.
+    - 목록글은 해당 IT주제의 대표 이미지와 제목, 간단 요약 등이 들어 있는 카드의 리스트 형태로 나열이 되어야 한다.
+4. 김개발은 google ID를 가지고 로그인을 할 수 있다. 이렇게 함으로써 내가 쓴 글만 따로 모아서 볼 수 있다.
+5. 김개발은 그룹별로 스탠드업을 만들 수 있고 각 그룹별로 글을 올릴 수 있다
 
-### `npm start`
+## 설명
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+"글과 링크를 입력하면 카드를 만들어서 Firebase에 저장합니다." 라는 최소 기능 제품(Minimum Viable Product, MVC) 또는 해피 패스(Happy Path)를 가지고 소셜미디어를 만들 수 있는 프로젝트.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Embedly, Firebase, Github
+페이지를 가자고 당분간 무료로 운영할 수 있는 북마크 소셜 미디어를 만들어 봅시다.
 
-### `npm test`
+### 7 days of Practice
+Day 0
+이외에는 각 브랜치에 진행사항에 대한 설명이 있습니다.
+* Day 0. Git설정 & README 작성
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Day 1. user story 1 - create-react-app
+https://github.com/ehrudxo/standup/tree/day1
+* Day 2. user story 2 — logo, favicon, editor
+https://github.com/ehrudxo/standup/tree/day2
+* Day 3. user story 2 — firebase, jest setting
+https://github.com/ehrudxo/standup/tree/day3
+* Day 4. user story 2 — firebase dao
+https://github.com/ehrudxo/standup/tree/day4
+* Day 5. user story 3 - card, list, embed.ly, axios
+https://github.com/ehrudxo/standup/tree/day5
+* Day 6. user story 4 — authentication, redux & router
+https://github.com/ehrudxo/standup/tree/day6
+* Day 7. user story 4 - Group
+https://github.com/ehrudxo/standup/tree/day7
 
-### `npm run build`
+### 설치
+```
+$git checkout day1
+```
+1~6 번갈아 가면서 개발
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 실행
+```
+$npm install
+$npm start
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## API
+API는 계획없는 자체 프로젝트입니다. 추후 발생할 여지는 있음.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## production
+제품을 빌드하려면
+```
+npm run build
+```
 
-### `npm run eject`
+제품을 디플로이 하려면
+```
+npm run deploy
+```
+를 통해 작업할 수 있습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+###라이센스
+MIT
