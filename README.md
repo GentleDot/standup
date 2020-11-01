@@ -48,7 +48,7 @@ $git checkout day1
 
 ### 실행
 ```
-$npm install
+$npm installg
 $npm start
 ```
 
