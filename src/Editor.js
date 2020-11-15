@@ -2,8 +2,6 @@ import React, {Component} from "react";
 import "./Editor.css"
 import Profile from "./Profile";
 
-
-<<<<<<< HEAD
 class Editor extends Component {
     /* 사용되는 메서드들을 모두 this로 사용할 수 있도록 binding 해 준다. */
     constructor(props) {
@@ -87,17 +85,6 @@ class Editor extends Component {
                          placeholder="글쓰기......"
                          onPaste={this.onPaste}
                          onKeyUp={this.editorChange}>
-=======
-class Editor extends Component{
-    render(){
-        return (
-            <div className="wrapEditor">
-                <Profile isAnonymous={this.props.isAnonymous} />
-                <div className="textEditor">
-                    <div className="innerEdit"
-                         contentEditable="true"
-                         placeholder="글쓰기......">
->>>>>>> day2
                     </div>
                 </div>
                 <div className="actionBar">

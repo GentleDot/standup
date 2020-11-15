@@ -2,14 +2,10 @@ import React, {Component} from 'react';
 import logo from './img/standup_logo.png';
 import './App.css';
 import Editor from './Editor';
-<<<<<<< HEAD
 import config from "./config";
 
-// console.log(config.apiKey);
+console.log(config.apiKey);
 
-=======
-
->>>>>>> day2
 class App extends Component{
     constructor() {
         super();
