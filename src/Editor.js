@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./Editor.css"
 import Profile from "./Profile";
+import Article from "./Article";
 
 class Editor extends Component {
     /* 사용되는 메서드들을 모두 this로 사용할 수 있도록 binding 해 준다. */
@@ -10,6 +11,7 @@ class Editor extends Component {
         this.editorChange = this.editorChange.bind(this);
         this.getCard = this.getCard.bind(this);
         this.hasValue = this.hasValue.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             embedlyUrl: undefined,
             content: undefined
@@ -72,7 +74,11 @@ class Editor extends Component {
     }
 
     handleSubmit(event) {
-        this.props.submit();
+        let article = Object.assign({}, Article());
+        article.user = "gentledot";
+        article.content = this.state.content;
+        article.urls[0].url = this.state.embedlyUrl;
+        this.props.submit(article);
     }
 
     render() {
@@ -88,7 +94,8 @@ class Editor extends Component {
                     </div>
                 </div>
                 <div className="actionBar">
-                    <button className="upload" onClick={this.props.handleSubmit}>
+                    <button className="upload" disabled={!this.hasValue(this.state.content)}
+                            onClick={this.handleSubmit}>
                         <span>스탠드업!</span>
                     </button>
                 </div>

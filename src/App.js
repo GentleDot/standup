@@ -3,33 +3,74 @@ import logo from './img/standup_logo.png';
 import './App.css';
 import Editor from './Editor';
 import config from "./config";
+import FirebaseDao from "./FirebaseDao";
 
-console.log(config.apiKey);
-
-class App extends Component{
+class App extends Component {
     constructor() {
         super();
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.dao = new FirebaseDao(config);
+        this.submit = this.submit.bind(this);
+        this.getArticles = this.getArticles.bind(this);
+        this.state = {
+            articles: []
+        }
     }
 
-    // 버튼을 눌렀을 때 Action. 우선은 console.log로 확인
-    handleSubmit(e){
-        console.log(this, e);
+    submit(article) {
+        if (article) {
+            let key = this.dao.newKey();
+            let updated = this.dao.update(key, article);
+            return updated;
+        }
+    }
+
+    getArticles() {
+        let articleItems = [];
+        for (let i = 0; i < this.state.articles.length; i++) {
+            articleItems.push(<li key={this.state.articles[i].key}>{this.state.articles[i].content}</li>);
+        }
+        console.log(articleItems);
+        return articleItems;
     }
 
     // 익명 사용자 여부
-    isAnonymous(){
+    isAnonymous() {
         return true;
     }
 
-    render(){
+    componentDidMount() {
+        this.dao.list(25).on('value', (snapshots) => {
+            let items = [];
+            snapshots.forEach((dataSnapshot) => {
+                let item = dataSnapshot.val();
+                item['key'] = dataSnapshot.key;
+                console.log(`item 확인 : ${dataSnapshot.val()}`);
+                items.push(item);
+            });
+
+            if (items && items.length > 0) {
+               this.setState({
+                  articles: items.reverse()
+               });
+            }
+        });
+    }
+
+    componentWillUnmount() {
+        this.dao.off();
+    }
+
+    render() {
         return (
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h2>Stand Up 앱을 만들어 봅시다</h2>
                 </header>
-                <Editor {...this} />
+                <Editor submit={this.submit} isAnonymous={this.isAnonymous}/>
+                <div>
+                    <ul>{this.getArticles()}</ul>
+                </div>
             </div>
         );
     }
