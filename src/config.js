@@ -9,4 +9,5 @@ const firebase_config = {
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
+export const embedlyKey = process.env.REACT_APP_EMBEDLY_KEY;
 export default firebase_config;
