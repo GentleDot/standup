@@ -1,6 +1,6 @@
 import FirebaseDao from "../FirebaseDao";
 import config from "../config";
-import Article from "../Article";
+import Article from "./Article";
 
 let dao = new FirebaseDao(config);
 let testArticle = Article();
